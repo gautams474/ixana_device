@@ -12,9 +12,11 @@ int main()
 
    enter_mode_0();
 
-   //enter_mode_1();
+   enter_mode_1();
 
-   //enter_mode_2();
+   enter_mode_2();
+
+   board_device_deinit();
 
    std::cout<<"completed"<<std::endl;
 

@@ -1,7 +1,9 @@
 # ixana_device
 
 Instructions: 
-In the main.cpp file, inside the main function 3 functions for each mode have been called. Please uncomment the one you need to run.
+3 functions have been created for each mode. Please start the code review at main.cpp
+To compile and run use make cmd and run the output.exe(for windows).
+compiler: mingw make 4.4.1 version used for windows32
 
 points to note:
 

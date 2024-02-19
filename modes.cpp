@@ -70,6 +70,10 @@ void enter_mode_0()
         //DONE pin never got set to high by device, add error handling */
     }
 
+    /*power down*/
+    vccb(low);
+    vcca(low);
+
 }
 
 
@@ -105,6 +109,10 @@ void enter_mode_1()
     {
         /*failed to configure to mode 1, handle error condition*/
     }
+
+    /*power down*/
+    vccb(low);
+    vcca(low);
 }
 
 void enter_mode_2()
@@ -123,5 +131,9 @@ void enter_mode_2()
     {
         /*failed to configure to mode 2, handle error condition*/
     }
+
+    /*power down*/
+    vccb(low);
+    vcca(low);
 
 }

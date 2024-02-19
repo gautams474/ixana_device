@@ -25,6 +25,16 @@ void gpio_output_init(gpio_out_t& g_pin, PUPD pp, OUT out_type)
     g_pin.init(pp, out_type);
 }
 
+void gpio_input_deinit(gpio_in_t& g_pin)
+{
+    g_pin.deinit();
+}
+
+void gpio_output_deinit(gpio_out_t& g_pin)
+{
+    g_pin.deinit();
+}
+
 void pin_setup()
 {
     //configure output pins
@@ -45,3 +55,15 @@ void board_device_init()
     GPIO_SELECT.write(low);
 }
 
+void board_device_deinit()
+{
+    gpio_output_deinit(GPIO_NRST);
+    gpio_output_deinit(GPIO_NTEST);
+    gpio_output_deinit(GPIO_CTRL);
+    gpio_output_deinit(GPIO_SELECT);
+
+    //configure input pins
+    gpio_input_deinit(GPIO_DONE);
+    gpio_input_deinit(GPIO_SUCCESS);
+
+}

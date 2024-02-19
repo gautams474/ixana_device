@@ -30,4 +30,7 @@ void gpio_output_init(gpio_out_t& g_pin, PUPD pp, OUT out_type);
 /// @brief init function to be called once in the beginning
 void board_device_init();
 
+/// @brief deinit function to be called once at end
+void board_device_deinit();
+
 #endif 
