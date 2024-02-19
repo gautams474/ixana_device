@@ -16,6 +16,6 @@ int main()
 
    enter_mode_2();
 
-   std::cout<<"no issues"<<std::endl;
+   std::cout<<"completed"<<std::endl;
 
 }

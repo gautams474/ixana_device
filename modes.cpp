@@ -5,7 +5,7 @@
 #include "./inc/coms.h"
 #include "./inc/delay.h"
 
-
+/* configuration data to be transferred to device*/
 uint8_t data[5] = { 1,1,1,1,1};
 uint32_t size = sizeof(data);
 uint32_t max_delay_us = 2*(1 + size*8);
@@ -35,11 +35,14 @@ void enter_mode_0()
     
     config_time = time_us();
 
+    /*poll for DONE pin status*/
     while(GPIO_DONE.read() != true)
     {
+        /*timeout added in case DONE pin never goes high*/
         new_time = time_us();
         if(new_time < config_time)
         {
+            /*counter overflow case*/
             if((UINT32_MAX - config_time) + new_time > max_delay_us)
             {
                 done_timeout = true;
@@ -48,6 +51,7 @@ void enter_mode_0()
         }
         else
         {
+            /*regular case*/
             if(new_time - config_time > max_delay_us)
             {
                 done_timeout = true;
@@ -77,6 +81,7 @@ void enter_mode_1()
     //nrst negative pulse
     GPIO_NRST.write(low);
     vcca(true);
+    /*delay below to allow vcca to stabilize*/
     delay_us(100);
     vccb(true);
     delay_us(15000);
@@ -86,6 +91,7 @@ void enter_mode_1()
     //nrst pos edge
     GPIO_NRST.write(high);
 
+    /*5ms delay after nrst posedge according to data sheet*/
     delay_us(5000);
     /* change direction for cntrl pin to input*/
     GPIO_CTRL.deinit();

@@ -3,6 +3,7 @@
 #include "./inc/coms.h"
 #include "./inc/delay.h"
 
+/*empty declarations for library functions from /inc folder added for compilation*/
 bool gpio_in_t::read()
 {
     //

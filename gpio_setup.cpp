@@ -4,6 +4,7 @@
 #include "./inc/gpio.hpp"
 #include "gpio_setup.hpp"
 
+/*structs for corresponding to each pin*/
 gpio_out_t GPIO_NRST = {PIN_NRST};
 gpio_out_t GPIO_NTEST = {PIN_NTEST};
 gpio_out_t GPIO_CTRL = {PIN_CTRL};
@@ -12,6 +13,7 @@ gpio_out_t GPIO_SELECT = {PIN_SELECT};
 gpio_in_t GPIO_DONE = {PIN_DONE};
 gpio_in_t GPIO_SUCCESS = {PIN_SUCCESS};
 gpio_in_t GPIO_CTRL_IN = {PIN_CTRL};
+
 
 void gpio_input_init(gpio_in_t& g_pin, PUPD pp)
 {  
