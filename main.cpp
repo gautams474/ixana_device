@@ -8,13 +8,13 @@ int main()
 {
    board_device_init();
 
-   /*Uncomment function for entering corresponding mode*/
+   /*Uncomment function for entering corresponding mode, default mode 0*/
 
    enter_mode_0();
 
-   enter_mode_1();
+   //enter_mode_1();
 
-   enter_mode_2();
+   //enter_mode_2();
 
    std::cout<<"completed"<<std::endl;
 
